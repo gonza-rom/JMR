@@ -1,9 +1,9 @@
     const productos = [
-      { id: 1, nombre: "Cartera Amayra Negra", precio: 20000, categoria: "carteras", imagen: "/img/62.2074G.2.jpg" },
-      { id: 2, nombre: "Billetera JMR Cuero", precio: 12000, categoria: "billeteras", imagen: "/img/62.2074G.2.jpg" },
-      { id: 3, nombre: "Mochila Cuero Marrón", precio: 25000, categoria: "mochilas", imagen: "/img/62.2074G.2.jpg" },
-      { id: 4, nombre: "Cartera Amayra Roja", precio: 22000, categoria: "carteras", imagen: "/img/62.2074G.2.jpg" },
-      { id: 5, nombre: "Billetera JMR Azul", precio: 14000, categoria: "billeteras", imagen: "/img/62.2074G.2.jpg" }
+      { id: 1, nombre: "Cartera Amayra Negra", precio: 20000, categoria: "carteras", imagen: "./img/62.2074G.2.jpg" },
+      { id: 2, nombre: "Billetera JMR Cuero", precio: 12000, categoria: "billeteras", imagen: "./img/62.2074G.2.jpg" },
+      { id: 3, nombre: "Mochila Cuero Marrón", precio: 25000, categoria: "mochilas", imagen: "./img/62.2074G.2.jpg" },
+      { id: 4, nombre: "Cartera Amayra Roja", precio: 22000, categoria: "carteras", imagen: "./img/62.2074G.2.jpg" },
+      { id: 5, nombre: "Billetera JMR Azul", precio: 14000, categoria: "billeteras", imagen: "./img/62.2074G.2.jpg" }
     ];
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -71,29 +71,6 @@
       mostrarCarrito();
     }
 
-    function mostrarCarrito() {
-      const carritoUl = document.getElementById("carrito");
-      carritoUl.innerHTML = "";
-      let total = 0;
-      carrito.forEach(item => {
-        total += item.precio * item.cantidad;
-        carritoUl.innerHTML += `
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <div>
-              <strong>${item.nombre}</strong><br>
-              <button class="btn btn-sm btn-outline-secondary" onclick="cambiarCantidad(${item.id}, -1)">➖</button>
-              <span class="mx-2">${item.cantidad}</span>
-              <button class="btn btn-sm btn-outline-secondary" onclick="cambiarCantidad(${item.id}, 1)">➕</button>
-            </div>
-            <div>
-              $${item.precio * item.cantidad}
-              <button class="btn btn-sm btn-danger ms-2" onclick="eliminarProducto(${item.id})">🗑️</button>
-            </div>
-          </li>
-        `;
-      });
-      document.getElementById("total").innerText = total;
-    }
 
     function guardarCarrito() {
       localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -165,11 +142,14 @@
         total += item.precio * item.cantidad;
         carritoUl.innerHTML += `
         <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+            <img src="${item.imagen}" alt="${item.nombre}" style="width:100px; height:100px; object-fit:cover; margin-right:10px; border-radius:5px;">
             <div>
-            <strong>${item.nombre}</strong><br>
-            <button class="btn btn-sm btn-outline-secondary" onclick="cambiarCantidad(${item.id}, -1)">➖</button>
-            <span class="mx-2">${item.cantidad}</span>
-            <button class="btn btn-sm btn-outline-secondary" onclick="cambiarCantidad(${item.id}, 1)">➕</button>
+                <strong>${item.nombre}</strong><br>
+                <button class="btn btn-sm btn-outline-secondary" onclick="cambiarCantidad(${item.id}, -1)">➖</button>
+                <span class="mx-2">${item.cantidad}</span>
+                <button class="btn btn-sm btn-outline-secondary" onclick="cambiarCantidad(${item.id}, 1)">➕</button>
+            </div>
             </div>
             <div>
             $${item.precio * item.cantidad}
