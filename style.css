@@ -1,0 +1,105 @@
+/* Estilos generales */
+body {
+  background-color: #f8f9fa; /* claro por defecto */
+  color: #212529;
+}
+
+/* Cards */
+.card-img-top {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+/* Toast */
+.toast-body {
+  color: #fff;
+}
+
+/* Botón modo oscuro */
+.btn-toggle-dark {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+/* Cards */
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border-color: #333;
+}
+
+/* Lista del carrito */
+body.dark-mode .list-group-item {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border-color: #333;
+}
+
+/* Inputs y selects */
+body.dark-mode input,
+body.dark-mode select {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+/* Botones */
+body.dark-mode .btn-primary {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+body.dark-mode .btn-success {
+  background-color: #22c55e;
+  border-color: #22c55e;
+}
+body.dark-mode .btn-danger {
+  background-color: #ef4444;
+  border-color: #ef4444;
+}
+body.dark-mode .btn-outline-secondary {
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+/* Placeholder en inputs */
+body.dark-mode ::placeholder {
+  color: #aaa;
+}
+
+body.dark-mode .modal-content {
+  background-color: #1e1e1e; /* fondo oscuro */
+  color: #f0f0f0; /* texto claro */
+  border-color: #333;
+}
+
+/* Botones del modal */
+body.dark-mode .modal-footer .btn-danger {
+  background-color: #ef4444;
+  border-color: #ef4444;
+}
+
+body.dark-mode .modal-footer .btn-success {
+  background-color: #22c55e;
+  border-color: #22c55e;
+}
+
+/* Close button */
+body.dark-mode .btn-close {
+  filter: invert(1); /* cambia el color del X a blanco */
+}
+
+.logo-imagen{
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; 
+}
